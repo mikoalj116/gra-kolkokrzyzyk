@@ -1,0 +1,79 @@
+
+
+<!DOCTYPE html>
+<html lang="PL">
+<head>
+    <meta charset="UTF-8">
+    <title>Gra</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Zagraj w kolko i krzyzyk</h1>
+    </header>
+
+    <main>
+        <section id="lewa">
+            <h2>Gra kolko</h2>
+        </section>
+
+        <section id="srodkowa">
+            <table>
+                <tr>
+                    <td><img src="nic.png" onclick="ruch(this)"></td>
+                    <td><img src="nic.png" onclick="ruch(this)"></td>
+                    <td><img src="nic.png" onclick="ruch(this)"></td>
+                </tr>
+                <tr>
+                    <td><img src="nic.png" onclick="ruch(this)"></td>
+                    <td><img src="nic.png" onclick="ruch(this)"></td>
+                    <td><img src="nic.png" onclick="ruch(this)"></td>
+                </tr>
+                <tr>
+                    <td><img src="nic.png" onclick="ruch(this)"></td>
+                    <td><img src="nic.png" onclick="ruch(this)"></td>
+                    <td><img src="nic.png" onclick="ruch(this)"></td>
+                </tr>
+            </table>
+        </section>
+
+        <section id="prawa">
+            <h2>Gra krzyzyk</h2>
+        </section>
+    </main>
+
+    <footer>
+        <a href="https://pl.battleship-game.org/" target="_blank">zagraj w statki</a>
+        <p>Gre opracowal: Tomek Perla</p>
+    </footer>
+
+    <script>
+        let aktualnyGracz = "o";
+
+        function ruch(obraz) {
+
+            if (obraz.src.includes("nic.png")) {
+
+                if (aktualnyGracz === "o") {
+                    obraz.src = "o.png";
+
+                    document.getElementById("lewa").style.visibility = "hidden";
+                    document.getElementById("prawa").style.visibility = "visible";
+
+                    aktualnyGracz = "x";
+
+                } else {
+                    obraz.src = "x.png";
+
+                    document.getElementById("lewa").style.visibility = "visible";
+                    document.getElementById("prawa").style.visibility = "hidden";
+
+                    aktualnyGracz = "o";
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>
